@@ -13,5 +13,9 @@ services:
       - .env
     environment:
       - PORT=3000
-    extra_hosts:
-      - "host.docker.internal:host-gateway"
+    networks:
+      - innovation_net
+
+networks:
+  innovation_net:
+    external: true
