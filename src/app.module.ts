@@ -8,10 +8,30 @@ import { UsersModule } from './users/users.module';
 import { CompaniesModule } from './companies/companies.module';
 import { BranchesModule } from './branches/branches.module';
 import { BuildingsModule } from './buildings/buildings.module';
+import { CfoModule } from './cfo/cfo.module';
+
+// Import all entities
 import { OrgUser } from './entities/org-user.entity';
 import { OrgCompany } from './entities/org-company.entity';
 import { OrgBranch } from './entities/org-branch.entity';
 import { OrgBuilding } from './entities/org-building.entity';
+import { StdScope } from './entities/std-scope.entity';
+import { StdFactorGroup } from './entities/std-factor-group.entity';
+import { StdFactorSubgroup } from './entities/std-factor-subgroup.entity';
+import { StdFactorCommon } from './entities/std-factor-common.entity';
+import { StdEfTgo } from './entities/std-ef-tgo.entity';
+import { StdFuelType } from './entities/std-fuel-type.entity';
+import { StdFuelBrand } from './entities/std-fuel-brand.entity';
+import { StdFuelMapEf } from './entities/std-fuel-map-ef.entity';
+import { OrgAsset } from './entities/org-asset.entity';
+import { OrgUserBranch } from './entities/org-user-branch.entity';
+import { OrgUserAsset } from './entities/org-user-asset.entity';
+import { OrgAssetMapEfTgo } from './entities/org-asset-map-ef-tgo.entity';
+import { OrgEmission } from './entities/org-emission.entity';
+import { OrgEmissionCalculate } from './entities/org-emission-calculate.entity';
+import { OrgEmissionEvidence } from './entities/org-emission-evidence.entity';
+import { AdminFormular } from './entities/admin-formular.entity';
+import { Calculate } from './entities/calculate.entity';
 
 @Module({
   imports: [
@@ -28,7 +48,29 @@ import { OrgBuilding } from './entities/org-building.entity';
         username: configService.get<string>('DB_USER') || 'postgres',
         password: configService.get<string>('DB_PASSWORD') || 'postgres',
         database: configService.get<string>('DB_NAME') || 'postgres',
-        entities: [OrgUser, OrgCompany, OrgBranch, OrgBuilding],
+        entities: [
+          OrgUser,
+          OrgCompany,
+          OrgBranch,
+          OrgBuilding,
+          StdScope,
+          StdFactorGroup,
+          StdFactorSubgroup,
+          StdFactorCommon,
+          StdEfTgo,
+          StdFuelType,
+          StdFuelBrand,
+          StdFuelMapEf,
+          OrgAsset,
+          OrgUserBranch,
+          OrgUserAsset,
+          OrgAssetMapEfTgo,
+          OrgEmission,
+          OrgEmissionCalculate,
+          OrgEmissionEvidence,
+          AdminFormular,
+          Calculate,
+        ],
         synchronize: false, // Set to false to prevent database modification in production
       }),
     }),
@@ -37,6 +79,7 @@ import { OrgBuilding } from './entities/org-building.entity';
     CompaniesModule,
     BranchesModule,
     BuildingsModule,
+    CfoModule,
   ],
   controllers: [AppController],
   providers: [AppService],
