@@ -5,10 +5,9 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { AuthModule } from './auth/auth.module';
 import { UsersModule } from './users/users.module';
-import { CompaniesModule } from './companies/companies.module';
-import { BranchesModule } from './branches/branches.module';
-import { BuildingsModule } from './buildings/buildings.module';
-import { CfoModule } from './cfo/cfo.module';
+import { StandardCfoModule } from './standard-cfo/standard-cfo.module';
+import { OrganizationModule } from './organization/organization.module';
+import { EmissionCalculationModule } from './emission-calculation/emission-calculation.module';
 
 // Import all entities
 import { OrgUser } from './entities/org-user.entity';
@@ -75,11 +74,10 @@ import { Calculate } from './entities/calculate.entity';
       }),
     }),
     AuthModule,
-    UsersModule,
-    CompaniesModule,
-    BranchesModule,
-    BuildingsModule,
-    CfoModule,
+    UsersModule, // Kept for auth login service internal dependency
+    StandardCfoModule,
+    OrganizationModule,
+    EmissionCalculationModule,
   ],
   controllers: [AppController],
   providers: [AppService],
