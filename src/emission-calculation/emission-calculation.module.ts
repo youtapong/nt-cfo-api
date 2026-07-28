@@ -7,7 +7,6 @@ import { EmissionCalculationController } from './emission-calculation.controller
 import { OrgEmission } from '../entities/org-emission.entity';
 import { OrgEmissionCalculate } from '../entities/org-emission-calculate.entity';
 import { OrgEmissionEvidence } from '../entities/org-emission-evidence.entity';
-import { AdminFormular } from '../entities/admin-formular.entity';
 import { Calculate } from '../entities/calculate.entity';
 
 @Module({
@@ -16,7 +15,6 @@ import { Calculate } from '../entities/calculate.entity';
       OrgEmission,
       OrgEmissionCalculate,
       OrgEmissionEvidence,
-      AdminFormular,
       Calculate,
     ]),
   ],

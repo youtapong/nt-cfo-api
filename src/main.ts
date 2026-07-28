@@ -18,9 +18,17 @@ async function bootstrap() {
   const document = SwaggerModule.createDocument(app, config);
   const theme = new SwaggerTheme();
   
+  const customCss = theme.getBuffer(SwaggerThemeNameEnum.FLATTOP) + `
+    .opblock-tag[data-tag="Dynamic Admin Role API Engine"],
+    .opblock-tag[data-tag="Dynamic Admin Role API Engine"] a,
+    .opblock-tag[data-tag="Dynamic Admin Role API Engine"] span {
+      color: red !important;
+    }
+  `;
+
   SwaggerModule.setup('docs', app, document, {
     useGlobalPrefix: true,
-    customCss: theme.getBuffer(SwaggerThemeNameEnum.FLATTOP),
+    customCss: customCss,
   });
 
   await app.listen(process.env.PORT ?? 3000);

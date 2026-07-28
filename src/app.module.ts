@@ -8,6 +8,8 @@ import { UsersModule } from './users/users.module';
 import { StandardCfoModule } from './standard-cfo/standard-cfo.module';
 import { OrganizationModule } from './organization/organization.module';
 import { EmissionCalculationModule } from './emission-calculation/emission-calculation.module';
+import { AdminModule } from './admin/admin.module';
+import { UploadModule } from './upload/upload.module';
 
 // Import all entities
 import { OrgUser } from './entities/org-user.entity';
@@ -29,7 +31,7 @@ import { OrgAssetMapEfTgo } from './entities/org-asset-map-ef-tgo.entity';
 import { OrgEmission } from './entities/org-emission.entity';
 import { OrgEmissionCalculate } from './entities/org-emission-calculate.entity';
 import { OrgEmissionEvidence } from './entities/org-emission-evidence.entity';
-import { AdminFormular } from './entities/admin-formular.entity';
+import { AdminFormular } from './admin/admin-formular.entity';
 import { Calculate } from './entities/calculate.entity';
 
 @Module({
@@ -78,6 +80,8 @@ import { Calculate } from './entities/calculate.entity';
     StandardCfoModule,
     OrganizationModule,
     EmissionCalculationModule,
+    AdminModule,
+    UploadModule,
   ],
   controllers: [AppController],
   providers: [AppService],
