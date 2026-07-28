@@ -8,7 +8,7 @@ services:
     container_name: nt-cfo-api
     restart: always
     ports:
-      - "3000:3000"
+      - "0.0.0.0:3002:3000"
     env_file:
       - .env
     environment:
