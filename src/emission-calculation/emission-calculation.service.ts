@@ -232,6 +232,26 @@ export class EmissionCalculationService {
     dataArray['factor_common'] = factorCommon;
     dataArray['fuel_type'] = fuelType;
 
+    // Fetch std_ef_tgo details
+    const stdEfTgoKeys = ['stdEfTgo1', 'stdEfTgo2', 'stdEfTgo3', 'stdEfTgo4'] as const;
+    for (const key of stdEfTgoKeys) {
+      const tgoId = formular[key];
+      const jsonKey = key === 'stdEfTgo1' ? 'std_ef_tgo1' :
+                      key === 'stdEfTgo2' ? 'std_ef_tgo2' :
+                      key === 'stdEfTgo3' ? 'std_ef_tgo3' : 'std_ef_tgo4';
+      if (tgoId && tgoId !== 0) {
+        const tgoDetail = await stdEfTgoRepo.findOne({ where: { efTgoId: tgoId } });
+        if (tgoDetail) {
+          delete (tgoDetail as any).lastModified;
+          dataArray[jsonKey] = tgoDetail;
+        } else {
+          dataArray[jsonKey] = null;
+        }
+      } else {
+        dataArray[jsonKey] = null;
+      }
+    }
+
     return dataArray;
   }
 }
