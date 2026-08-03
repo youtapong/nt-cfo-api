@@ -47,8 +47,14 @@ export class AuthService {
       firstname: user.firstname,
       lastname: user.lastname,
     };
+
+    const options: any = {};
+    if (user.role === 'iot') {
+      options.expiresIn = '100y'; // 100 years (virtually never expires)
+    }
+
     return {
-      access_token: this.jwtService.sign(payload),
+      access_token: this.jwtService.sign(payload, options),
     };
   }
 }
